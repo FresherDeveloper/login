@@ -71,10 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           RegExp regex = RegExp(
                               r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
                           if (value == null ||
-                              value.isEmpty ||
-                              !value.contains("@")) {
-                            return 'Please  a valid Password';
-                          } else if (value.length >= 8) {
+                              value.isEmpty 
+                              ) {
                             return 'Please  a valid Password';
                           } else {
                             if (!regex.hasMatch(value)) {
@@ -105,16 +103,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             border: OutlineInputBorder(),
                             hintText: 'confirm Password'),
                         validator: (value) {
+                        
                           RegExp regex = RegExp(
                               r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
                           if (value == null ||
-                              value.isEmpty ||
-                              !value.contains("@")) {
-                            return 'Please  a valid Password';
-                          } else if (value.length >= 8) {
+                              value.isEmpty 
+                             ) {
                             return 'Please  a valid Password';
                           } else {
-                            if (!regex.hasMatch(value) && (password == value)) {
+                            if (!regex.hasMatch(value) || (password != value)) {
                               return 'Enter valid password';
                             }
                           }
